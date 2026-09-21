@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vinos Boutique | Corporate Gifts</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    .font-luxury { font-family: 'Cinzel', serif; }
+    body { font-family: 'Montserrat', sans-serif; }
+  </style>
+</head>
+<body class="bg-[#0e0e11] text-[#f4f4f4] antialiased selection:bg-[#d4af37] selection:text-black">
+
+  <!-- Header / Nav -->
+  <header class="fixed w-full top-0 z-50 bg-[#0e0e11]/95 backdrop-blur-md border-b border-neutral-800">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="#" class="font-luxury text-lg sm:text-xl tracking-widest text-[#d4af37]">RESERVA BOUTIQUE</a>
+      
+      <div class="flex items-center space-x-6">
+        <nav class="hidden md:flex space-x-8 text-xs font-medium uppercase tracking-widest text-neutral-300">
+          <a href="#experiencia" class="hover:text-[#d4af37] transition" data-i18n="nav_experience">Experiencia</a>
+          <a href="#catalogo" class="hover:text-[#d4af37] transition" data-i18n="nav_catalog">Colección</a>
+          <a href="#contacto" class="hover:text-[#d4af37] transition" data-i18n="nav_contact">Contacto</a>
+        </nav>
+
+        <!-- Selector de Idioma -->
+        <div class="flex items-center space-x-2 text-xs border border-neutral-700 px-3 py-1.5 rounded-sm bg-neutral-900">
+          <button onclick="setLanguage('es')" id="btn-es" class="font-semibold text-[#d4af37]">ES</button>
+          <span class="text-neutral-600">|</span>
+          <button onclick="setLanguage('en')" id="btn-en" class="text-neutral-400 hover:text-white">EN</button>
+          <span class="text-neutral-600">|</span>
+          <button onclick="setLanguage('pt')" id="btn-pt" class="text-neutral-400 hover:text-white">PT</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative min-h-screen flex items-center pt-28 pb-16 px-6">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <span class="text-xs uppercase tracking-[0.3em] text-[#d4af37] font-semibold" data-i18n="hero_badge">Vinos de Autor & Pequeñas Bodegas</span>
+        <h1 class="font-luxury text-4xl sm:text-6xl font-bold mt-4 mb-6 leading-tight" data-i18n="hero_title">
+          El arte de agradecer con distinción.
+        </h1>
+        <p class="text-neutral-400 text-base sm:text-lg mb-8 max-w-lg leading-relaxed" data-i18n="hero_desc">
+          Partidas exclusivas diseñadas para agasajar a clientes clave, directivos y equipos estratégicos.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="#contacto" class="bg-[#d4af37] text-black font-semibold text-center uppercase tracking-wider text-xs px-8 py-4 hover:bg-[#b89528] transition" data-i18n="hero_btn_quote">
+            Solicitar Cotización B2B
+          </a>
+          <a href="#catalogo" class="border border-neutral-700 hover:border-neutral-500 text-center uppercase tracking-wider text-xs px-8 py-4 transition" data-i18n="hero_btn_explore">
+            Ver Catálogo
+          </a>
+        </div>
+      </div>
+
+      <!-- Imagen Destacada Hero (Rotativa) -->
+      <div class="relative">
+        <div class="aspect-[4/5] w-full overflow-hidden border border-neutral-800 shadow-2xl bg-neutral-900">
+          <img id="img-hero"
+               alt="Campaña Vinos Boutique" 
+               onerror="this.src='https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=1200&q=80'"
+               class="w-full h-full object-cover filter brightness-95 hover:scale-105 transition duration-700 ease-out" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pilares B2B -->
+  <section id="experiencia" class="py-20 bg-[#121215] border-y border-neutral-800">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="p-8 border border-neutral-800/80 bg-neutral-900/40">
+        <div class="text-[#d4af37] text-xl mb-3">✦</div>
+        <h3 class="font-luxury text-lg mb-2" data-i18n="pillar_1_title">Curaduría Exclusiva</h3>
+        <p class="text-neutral-400 text-xs sm:text-sm leading-relaxed" data-i18n="pillar_1_desc">Selecciones de parcelas limitadas y etiquetas de autor sin distribución comercial masiva.</p>
+      </div>
+      <div class="p-8 border border-neutral-800/80 bg-neutral-900/40">
+        <div class="text-[#d4af37] text-xl mb-3">✦</div>
+        <h3 class="font-luxury text-lg mb-2" data-i18n="pillar_2_title">Personalización Total</h3>
+        <p class="text-neutral-400 text-xs sm:text-sm leading-relaxed" data-i18n="pillar_2_desc">Grabado láser de tu isotipo en estuches rígidos, lacres artesanales y tarjetería de cata.</p>
+      </div>
+      <div class="p-8 border border-neutral-800/80 bg-neutral-900/40">
+        <div class="text-[#d4af37] text-xl mb-3">✦</div>
+        <h3 class="font-luxury text-lg mb-2" data-i18n="pillar_3_title">Logística Integral</h3>
+        <p class="text-neutral-400 text-xs sm:text-sm leading-relaxed" data-i18n="pillar_3_desc">Entregas masivas centralizadas o despachos individuales a domicilio con seguro de carga.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Catálogo -->
+  <section id="catalogo" class="py-24 px-6 max-w-7xl mx-auto">
+    <div class="text-center max-w-xl mx-auto mb-16">
+      <span class="text-xs uppercase tracking-[0.25em] text-[#d4af37]" data-i18n="cat_badge">Edición 2026</span>
+      <h2 class="font-luxury text-3xl sm:text-4xl mt-2 mb-3" data-i18n="cat_title">Estuches & Colecciones</h2>
+      <p class="text-neutral-400 text-sm" data-i18n="cat_sub">Mínimo de orden: 10 unidades.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Producto 1 -->
+      <div class="border border-neutral-800 bg-[#121215] p-5">
+        <div class="aspect-square bg-neutral-900 overflow-hidden mb-5">
+          <img id="img-prod-1" 
+               alt="Set Dual Reserva" 
+               onerror="this.src='https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&w=800&q=80'"
+               class="w-full h-full object-cover" />
+        </div>
+        <h4 class="font-luxury text-lg mb-1" data-i18n="prod_1_title">Dúo Gran Reserva</h4>
+        <p class="text-xs text-[#d4af37] mb-3 uppercase tracking-wider">Malbec + Cabernet Franc</p>
+        <p class="text-neutral-400 text-xs leading-relaxed mb-4" data-i18n="prod_1_desc">Estuche de guatambú lustrado con accesorios de sommelier.</p>
+        <a href="#contacto" class="text-xs uppercase tracking-widest text-[#d4af37] hover:underline" data-i18n="quote_link">Cotizar volumen →</a>
+      </div>
+
+      <!-- Producto 2 -->
+      <div class="border border-neutral-800 bg-[#121215] p-5">
+        <div class="aspect-square bg-neutral-900 overflow-hidden mb-5">
+          <img id="img-prod-2" 
+               alt="Cofre Ícono" 
+               onerror="this.src='https://images.unsplash.com/photo-1558001373-7b93ee48ffa0?auto=format&fit=crop&w=800&q=80'"
+               class="w-full h-full object-cover" />
+        </div>
+        <h4 class="font-luxury text-lg mb-1" data-i18n="prod_2_title">Cofre Single Vineyard</h4>
+        <p class="text-xs text-[#d4af37] mb-3 uppercase tracking-wider">Botella Ícono Numerada</p>
+        <p class="text-neutral-400 text-xs leading-relaxed mb-4" data-i18n="prod_2_desc">Caja rígida forrada en lino con cierre magnético y lacre artesanal.</p>
+        <a href="#contacto" class="text-xs uppercase tracking-widest text-[#d4af37] hover:underline" data-i18n="quote_link">Cotizar volumen →</a>
+      </div>
+
+      <!-- Producto 3 -->
+      <div class="border border-neutral-800 bg-[#121215] p-5">
+        <div class="aspect-square bg-neutral-900 overflow-hidden mb-5">
+          <img id="img-prod-3" 
+               alt="Trilogía Terruños" 
+               onerror="this.src='https://images.unsplash.com/photo-1569919659476-f0852f6834b7?auto=format&fit=crop&w=800&q=80'"
+               class="w-full h-full object-cover" />
+        </div>
+        <h4 class="font-luxury text-lg mb-1" data-i18n="prod_3_title">Trilogía Terruños</h4>
+        <p class="text-xs text-[#d4af37] mb-3 uppercase tracking-wider">3 Varietales de Parcela</p>
+        <p class="text-neutral-400 text-xs leading-relaxed mb-4" data-i18n="prod_3_desc">Experiencia guiada con notas de cata e historia del enólogo.</p>
+        <a href="#contacto" class="text-xs uppercase tracking-widest text-[#d4af37] hover:underline" data-i18n="quote_link">Cotizar volumen →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacto B2B -->
+  <section id="contacto" class="py-20 bg-[#121215] border-t border-neutral-800">
+    <div class="max-w-2xl mx-auto px-6">
+      <div class="text-center mb-10">
+        <h2 class="font-luxury text-3xl mb-2" data-i18n="form_title">Solicitar Presupuesto Corporativo</h2>
+        <p class="text-neutral-400 text-xs sm:text-sm" data-i18n="form_sub">Recibe un catálogo detallado y lista de precios B2B en menos de 24 hs.</p>
+      </div>
+
+      <form class="space-y-4" onsubmit="event.preventDefault(); alert('Solicitud recibida. Te contactaremos a la brevedad.');">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <input type="text" required placeholder="Nombre y Apellido" data-placeholder="input_name" class="w-full bg-neutral-900 border border-neutral-800 px-4 py-3 text-sm focus:outline-none focus:border-[#d4af37]" />
+          <input type="text" required placeholder="Empresa" data-placeholder="input_company" class="w-full bg-neutral-900 border border-neutral-800 px-4 py-3 text-sm focus:outline-none focus:border-[#d4af37]" />
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <input type="email" required placeholder="Email Corporativo" data-placeholder="input_email" class="w-full bg-neutral-900 border border-neutral-800 px-4 py-3 text-sm focus:outline-none focus:border-[#d4af37]" />
+          <select class="w-full bg-neutral-900 border border-neutral-800 px-4 py-3 text-sm text-neutral-300 focus:outline-none focus:border-[#d4af37]">
+            <option>10 - 25 unidades</option>
+            <option>26 - 50 unidades</option>
+            <option>51 - 100 unidades</option>
+            <option>+100 unidades</option>
+          </select>
+        </div>
+        <textarea rows="3" placeholder="Detalles de la entrega o personalización requerida..." data-placeholder="input_notes" class="w-full bg-neutral-900 border border-neutral-800 p-4 text-sm focus:outline-none focus:border-[#d4af37]"></textarea>
+        <button type="submit" class="w-full bg-[#d4af37] text-black font-semibold uppercase tracking-widest text-xs py-4 hover:bg-[#b89528] transition" data-i18n="btn_submit">
+          Enviar Solicitud
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-8 text-center text-xs text-neutral-600 border-t border-neutral-900">
+    <p>© 2026 Reserva Boutique. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- Lógica Multilenguaje y Rotación de Fotos -->
+  <script>
+    // 1. Textos en los 3 idiomas
+    const translations = {
+      es: {
+        nav_experience: "Experiencia",
+        nav_catalog: "Colección",
+        nav_contact: "Contacto",
+        hero_badge: "Vinos de Autor & Pequeñas Bodegas",
+        hero_title: "El arte de agradecer con distinción.",
+        hero_desc: "Partidas exclusivas diseñadas para agasajar a clientes clave, directivos y equipos estratégicos.",
+        hero_btn_quote: "Solicitar Cotización B2B",
+        hero_btn_explore: "Ver Catálogo",
+        pillar_1_title: "Curaduría Exclusiva",
+        pillar_1_desc: "Selecciones de parcelas limitadas y etiquetas de autor sin distribución comercial masiva.",
+        pillar_2_title: "Personalización Total",
+        pillar_2_desc: "Grabado láser de tu isotipo en estuches rígidos, lacres artesanales y tarjetería de cata.",
+        pillar_3_title: "Logística Integral",
+        pillar_3_desc: "Entregas masivas centralizadas o despachos individuales a domicilio con seguro de carga.",
+        cat_badge: "Edición 2026",
+        cat_title: "Estuches & Colecciones",
+        cat_sub: "Mínimo de orden: 10 unidades.",
+        prod_1_title: "Dúo Gran Reserva",
+        prod_1_desc: "Estuche de guatambú lustrado con accesorios de sommelier.",
+        prod_2_title: "Cofre Single Vineyard",
+        prod_2_desc: "Caja rígida forrada en lino con cierre magnético y lacre artesanal.",
+        prod_3_title: "Trilogía Terruños",
+        prod_3_desc: "Experiencia guiada con notas de cata e historia del enólogo.",
+        quote_link: "Cotizar volumen →",
+        form_title: "Solicitar Presupuesto Corporativo",
+        form_sub: "Recibe un catálogo detallado y lista de precios B2B en menos de 24 hs.",
+        btn_submit: "Enviar Solicitud",
+        input_name: "Nombre y Apellido",
+        input_company: "Empresa",
+        input_email: "Email Corporativo",
+        input_notes: "Detalles de la entrega o personalización requerida..."
+      },
+      en: {
+        nav_experience: "Experience",
+        nav_catalog: "Collection",
+        nav_contact: "Contact",
+        hero_badge: "Boutique Wines & Small Wineries",
+        hero_title: "The art of corporate appreciation.",
+        hero_desc: "Exclusive limited batches designed for key clients, executives, and strategic teams.",
+        hero_btn_quote: "Request B2B Quote",
+        hero_btn_explore: "Explore Catalog",
+        pillar_1_title: "Exclusive Curation",
+        pillar_1_desc: "Hand-picked limited batches and winemaker editions not found in retail.",
+        pillar_2_title: "Complete Branding",
+        pillar_2_desc: "Laser-engraved logos on premium wooden boxes, wax seals, and custom tasting cards.",
+        pillar_3_title: "Seamless Logistics",
+        pillar_3_desc: "Centralized corporate delivery or direct door-to-door dropshipping for each recipient.",
+        cat_badge: "2026 Edition",
+        cat_title: "Boxes & Collections",
+        cat_sub: "Minimum order: 10 units.",
+        prod_1_title: "Gran Reserva Duo",
+        prod_1_desc: "Polished wooden case paired with sommelier accessory set.",
+        prod_2_title: "Single Vineyard Box",
+        prod_2_desc: "Linen-lined rigid box with magnetic seal and handcrafted wax stamp.",
+        prod_3_title: "Terroir Trilogy",
+        prod_3_desc: "Guided tasting experience with winemaker notes and origin history.",
+        quote_link: "Request pricing →",
+        form_title: "Request Corporate Quote",
+        form_sub: "Get our detailed catalog and B2B rate sheet within 24 hours.",
+        btn_submit: "Submit Request",
+        input_name: "Full Name",
+        input_company: "Company",
+        input_email: "Corporate Email",
+        input_notes: "Delivery dates, branding preferences, or custom requirements..."
+      },
+      pt: {
+        nav_experience: "Experiência",
+        nav_catalog: "Coleção",
+        nav_contact: "Contato",
+        hero_badge: "Vinhos de Autor & Pequenas Vinícolas",
+        hero_title: "A arte de presentear com distinção.",
+        hero_desc: "Lotes exclusivos pensados para homenagear clientes estratégicos, diretores e equipes.",
+        hero_btn_quote: "Pedir Orçamento B2B",
+        hero_btn_explore: "Ver Catálogo",
+        pillar_1_title: "Curadoria Exclusiva",
+        pillar_1_desc: "Seleções de lotes limitados e vinhos de autor sem distribuição em massa.",
+        pillar_2_title: "Personalização Completa",
+        pillar_2_desc: "Gravação a laser da sua marca em estojos nobres, lacres artesanais e cartões de prova.",
+        pillar_3_title: "Logística Integrada",
+        pillar_3_desc: "Entregas corporativas em lote ou envios individuais porta a porta segurados.",
+        cat_badge: "Edição 2026",
+        cat_title: "Estojos & Coleções",
+        cat_sub: "Pedido mínimo: 10 unidades.",
+        prod_1_title: "Duo Gran Reserva",
+        prod_1_desc: "Estojo de madeira nobre polida com kit de acessórios sommelier.",
+        prod_2_title: "Cofre Single Vineyard",
+        prod_2_desc: "Caixa rígida forrada em linho com fecho magnético e lacre artesanal.",
+        prod_3_title: "Trilogia Terroirs",
+        prod_3_desc: "Experiência guiada com notas de degustação e histórico do enólogo.",
+        quote_link: "Cotar volume →",
+        form_title: "Solicitar Orçamento Corporativo",
+        form_sub: "Receba o catálogo completo e tabela de preços B2B em menos de 24 horas.",
+        btn_submit: "Enviar Solicitação",
+        input_name: "Nome Completo",
+        input_company: "Empresa",
+        input_email: "E-mail Corporativo",
+        input_notes: "Prazos de entrega, gravação de logo ou preferências de uva..."
+      }
+    };
+
+    function setLanguage(lang) {
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang][key]) el.textContent = translations[lang][key];
+      });
+      document.querySelectorAll('[data-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-placeholder');
+        if (translations[lang][key]) el.setAttribute('placeholder', translations[lang][key]);
+      });
+
+      ['es', 'en', 'pt'].forEach(l => {
+        const btn = document.getElementById('btn-' + l);
+        if (l === lang) {
+          btn.className = 'font-semibold text-[#d4af37]';
+        } else {
+          btn.className = 'text-neutral-400 hover:text-white';
+        }
+      });
+    }
+
+    // 2. Fotos de la carpeta highlights
+    const galleryPool = [
+      'highlights/SC10226_HJF1774.jpg',
+      'highlights/SC10311_HJF1794.jpg',
+      'highlights/SC10708_HJF2071.jpg',
+      'highlights/SC10590_HJF1982.jpg',
+      'highlights/SC10566_HJF1962.jpg',
+      'highlights/SC11396_HJF2612.jpg',
+      'highlights/SC11434_HJF2650.jpg',
+      'highlights/SC10545_MG_6571.jpg',
+      'highlights/SC10507_HJF1937.jpg',
+      'highlights/SC10230_MG_6438.jpg'
+    ];
+
+    function assignRandomImages() {
+      // Mezcla aleatoria del array de imágenes
+      const shuffled = [...galleryPool].sort(() => 0.5 - Math.random());
+
+      const heroImg = document.getElementById('img-hero');
+      const prod1 = document.getElementById('img-prod-1');
+      const prod2 = document.getElementById('img-prod-2');
+      const prod3 = document.getElementById('img-prod-3');
+
+      if (heroImg) heroImg.src = shuffled[0];
+      if (prod1) prod1.src = shuffled[1];
+      if (prod2) prod2.src = shuffled[2];
+      if (prod3) prod3.src = shuffled[3];
+    }
+
+    // Ejecuta al iniciar o refrescar la página
+    window.addEventListener('DOMContentLoaded', () => {
+      assignRandomImages();
+    });
+  </script>
+</body>
+</html>
