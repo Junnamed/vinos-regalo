@@ -60,12 +60,11 @@
         </div>
       </div>
 
-      <!-- Imagen Destacada Hero (Rotativa) -->
+      <!-- Imagen Destacada Hero (Carga dinámica de tu carpeta) -->
       <div class="relative">
         <div class="aspect-[4/5] w-full overflow-hidden border border-neutral-800 shadow-2xl bg-neutral-900">
           <img id="img-hero"
                alt="Campaña Vinos Boutique" 
-               onerror="this.src='https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=1200&q=80'"
                class="w-full h-full object-cover filter brightness-95 hover:scale-105 transition duration-700 ease-out" />
         </div>
       </div>
@@ -107,7 +106,6 @@
         <div class="aspect-square bg-neutral-900 overflow-hidden mb-5">
           <img id="img-prod-1" 
                alt="Set Dual Reserva" 
-               onerror="this.src='https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&w=800&q=80'"
                class="w-full h-full object-cover" />
         </div>
         <h4 class="font-luxury text-lg mb-1" data-i18n="prod_1_title">Dúo Gran Reserva</h4>
@@ -121,7 +119,6 @@
         <div class="aspect-square bg-neutral-900 overflow-hidden mb-5">
           <img id="img-prod-2" 
                alt="Cofre Ícono" 
-               onerror="this.src='https://images.unsplash.com/photo-1558001373-7b93ee48ffa0?auto=format&fit=crop&w=800&q=80'"
                class="w-full h-full object-cover" />
         </div>
         <h4 class="font-luxury text-lg mb-1" data-i18n="prod_2_title">Cofre Single Vineyard</h4>
@@ -135,7 +132,6 @@
         <div class="aspect-square bg-neutral-900 overflow-hidden mb-5">
           <img id="img-prod-3" 
                alt="Trilogía Terruños" 
-               onerror="this.src='https://images.unsplash.com/photo-1569919659476-f0852f6834b7?auto=format&fit=crop&w=800&q=80'"
                class="w-full h-full object-cover" />
         </div>
         <h4 class="font-luxury text-lg mb-1" data-i18n="prod_3_title">Trilogía Terruños</h4>
@@ -181,9 +177,9 @@
     <p>© 2026 Reserva Boutique. Todos los derechos reservados.</p>
   </footer>
 
-  <!-- Lógica Multilenguaje y Rotación de Fotos -->
+  <!-- Lógica Multilenguaje y Carga Dinámica desde GitHub -->
   <script>
-    // 1. Textos en los 3 idiomas
+    // 1. Diccionario Multilenguaje
     const translations = {
       es: {
         nav_experience: "Experiencia",
@@ -306,38 +302,46 @@
       });
     }
 
-    // 2. Fotos de la carpeta highlights
-    const galleryPool = [
-      'highlights/SC10226_HJF1774.jpg',
-      'highlights/SC10311_HJF1794.jpg',
-      'highlights/SC10708_HJF2071.jpg',
-      'highlights/SC10590_HJF1982.jpg',
-      'highlights/SC10566_HJF1962.jpg',
-      'highlights/SC11396_HJF2612.jpg',
-      'highlights/SC11434_HJF2650.jpg',
-      'highlights/SC10545_MG_6571.jpg',
-      'highlights/SC10507_HJF1937.jpg',
-      'highlights/SC10230_MG_6438.jpg'
-    ];
+    // 2. Consulta automática de imágenes a GitHub API
+    async function loadDynamicImages() {
+      const repoOwner = 'junnamed';
+      const repoName = 'vinos-regalo';
+      const folderPath = 'highlights';
+      const apiUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/${folderPath}`;
 
-    function assignRandomImages() {
-      // Mezcla aleatoria del array de imágenes
-      const shuffled = [...galleryPool].sort(() => 0.5 - Math.random());
+      try {
+        const response = await fetch(apiUrl);
+        if (!response.ok) throw new Error('No se pudo consultar la API de GitHub');
+        
+        const files = await response.json();
+        
+        // Filtra únicamente archivos de formato imagen
+        const validImages = files
+          .filter(file => file.type === 'file' && /\.(jpe?g|png|webp)$/i.test(file.name))
+          .map(file => file.path);
 
-      const heroImg = document.getElementById('img-hero');
-      const prod1 = document.getElementById('img-prod-1');
-      const prod2 = document.getElementById('img-prod-2');
-      const prod3 = document.getElementById('img-prod-3');
+        if (validImages.length === 0) return;
 
-      if (heroImg) heroImg.src = shuffled[0];
-      if (prod1) prod1.src = shuffled[1];
-      if (prod2) prod2.src = shuffled[2];
-      if (prod3) prod3.src = shuffled[3];
+        // Mezcla aleatoria de las fotos disponibles
+        const shuffled = [...validImages].sort(() => 0.5 - Math.random());
+
+        const heroImg = document.getElementById('img-hero');
+        const prod1 = document.getElementById('img-prod-1');
+        const prod2 = document.getElementById('img-prod-2');
+        const prod3 = document.getElementById('img-prod-3');
+
+        if (heroImg && shuffled[0]) heroImg.src = shuffled[0];
+        if (prod1 && shuffled[1 % shuffled.length]) prod1.src = shuffled[1 % shuffled.length];
+        if (prod2 && shuffled[2 % shuffled.length]) prod2.src = shuffled[2 % shuffled.length];
+        if (prod3 && shuffled[3 % shuffled.length]) prod3.src = shuffled[3 % shuffled.length];
+
+      } catch (error) {
+        console.error('Error al cargar imágenes dinámicas:', error);
+      }
     }
 
-    // Ejecuta al iniciar o refrescar la página
     window.addEventListener('DOMContentLoaded', () => {
-      assignRandomImages();
+      loadDynamicImages();
     });
   </script>
 </body>
